@@ -1,0 +1,370 @@
+/* =========================================================
+   ベビナビ サポートサイト — 共通スタイル
+   コンセプト: 沖縄の浜辺の光（コーラル × シーグラスの碧）
+   丸みのある書体でママと赤ちゃんのやさしさを、
+   マップピンのモチーフで「探せるアプリ」らしさを。
+   ========================================================= */
+
+@font-face { font-display: swap; }
+
+:root {
+  /* ブランド（アイコンのコーラルグラデーション） */
+  --coral:        #F0837A;
+  --coral-deep:   #E66A64;
+  --coral-soft:   #FBD9D2;
+
+  /* 沖縄の海の差し色（シーグラス） */
+  --sea:          #58B7AE;
+  --sea-soft:     #CDEAE6;
+
+  /* ベース */
+  --bg:           #FFF6EF;
+  --card:         #FFFFFF;
+  --ink:          #463B36;   /* 黒ではなく温かみのある焦げ茶 */
+  --muted:        #97877F;
+  --line:         #F0E2D8;
+
+  --radius:       24px;
+  --radius-sm:    14px;
+  --shadow:       0 1px 2px rgba(70,40,30,.04),
+                  0 18px 40px -22px rgba(230,106,100,.45);
+  --shadow-hover: 0 1px 2px rgba(70,40,30,.05),
+                  0 28px 56px -24px rgba(230,106,100,.55);
+
+  --font-display: "Zen Maru Gothic", "Hiragino Maru Gothic ProN", sans-serif;
+  --font-body:    "Zen Kaku Gothic New", -apple-system, BlinkMacSystemFont,
+                  "Hiragino Sans", "Noto Sans JP", sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  color: var(--ink);
+  line-height: 1.85;
+  letter-spacing: .01em;
+  background: var(--bg);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+}
+
+/* ---- 背景：沖縄の光のグラデーションメッシュ ---- */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -10% -10% auto -10%;
+  height: 120vh;
+  z-index: -2;
+  background:
+    radial-gradient(60% 50% at 85% 0%,  rgba(240,131,122,.40), transparent 70%),
+    radial-gradient(55% 45% at 5% 12%,  rgba(251,217,210,.55), transparent 70%),
+    radial-gradient(70% 55% at 50% 110%, rgba(88,183,174,.18), transparent 70%);
+  filter: saturate(1.05);
+}
+
+/* ---- 背景：きめ（グレイン）でフィルムっぽい温度感 ---- */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  pointer-events: none;
+  opacity: .05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+.wrap {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 0 22px;
+  position: relative;
+}
+
+/* =======================================================
+   ヒーロー
+   ======================================================= */
+.hero {
+  text-align: center;
+  padding: 72px 22px 26px;
+  position: relative;
+}
+
+.hero-icon {
+  width: 96px;
+  height: 96px;
+  border-radius: 24px;
+  display: block;
+  margin: 0 auto 22px;
+  box-shadow:
+    0 10px 30px -8px rgba(230,106,100,.55),
+    0 2px 6px rgba(70,40,30,.08);
+  animation: floaty 6s ease-in-out infinite;
+}
+
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-7px); }
+}
+
+.logo {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(34px, 8vw, 46px);
+  line-height: 1.1;
+  margin: 0 0 12px;
+  letter-spacing: .04em;
+  background: linear-gradient(120deg, var(--coral-deep), var(--coral) 60%, #F5A38C);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.tagline {
+  color: var(--muted);
+  font-size: 15.5px;
+  margin: 0 auto;
+  max-width: 30em;
+}
+
+/* ヒーローの特徴ピル */
+.pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin: 22px 0 0;
+}
+.pill {
+  font-size: 13px;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--coral-deep);
+  background: rgba(255,255,255,.7);
+  border: 1px solid var(--coral-soft);
+  padding: 7px 15px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+.pill.sea { color: #2F8E85; border-color: var(--sea-soft); }
+
+/* =======================================================
+   カード（フローティング）
+   ======================================================= */
+.cards { padding: 30px 0 8px; }
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px 28px 30px;
+  margin: 0 0 20px;
+  box-shadow: var(--shadow);
+  transition: transform .35s cubic-bezier(.2,.8,.2,1), box-shadow .35s ease;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+/* 見出し：頭にミニ・マップピン */
+h2 {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  letter-spacing: .02em;
+}
+h2::before {
+  content: "";
+  flex: none;
+  width: 14px;
+  height: 14px;
+  background: linear-gradient(135deg, var(--coral), var(--coral-deep));
+  border-radius: 50% 50% 50% 2px;
+  transform: rotate(45deg);
+  box-shadow: inset -1px -1px 0 rgba(0,0,0,.05);
+}
+
+p  { margin: 0 0 12px; }
+ul { padding-left: 0; margin: 12px 0; list-style: none; }
+li {
+  margin: 8px 0;
+  padding-left: 26px;
+  position: relative;
+}
+/* リストの点：海色の小さな実 */
+li::before {
+  content: "";
+  position: absolute;
+  left: 6px;
+  top: .72em;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--sea);
+  box-shadow: 0 0 0 4px var(--sea-soft);
+}
+
+a {
+  color: var(--coral-deep);
+  text-decoration: none;
+  font-weight: 700;
+}
+a:hover { text-decoration: underline; text-underline-offset: 3px; }
+
+/* お問い合わせボタン */
+.contact-mail {
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  background: linear-gradient(120deg, var(--coral), var(--coral-deep));
+  color: #fff;
+  font-family: var(--font-display);
+  font-weight: 700;
+  padding: 13px 26px;
+  border-radius: 999px;
+  margin-top: 6px;
+  box-shadow: 0 12px 26px -10px rgba(230,106,100,.8);
+  transition: transform .2s ease, box-shadow .2s ease, opacity .2s ease;
+}
+.contact-mail::before {
+  content: "";
+  width: 9px; height: 9px;
+  background: #fff;
+  border-radius: 50% 50% 50% 2px;
+  transform: rotate(45deg);
+}
+.contact-mail:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 18px 32px -12px rgba(230,106,100,.9);
+}
+
+/* FAQ */
+.faq-q {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin: 20px 0 5px;
+  color: var(--ink);
+}
+.faq-q:first-of-type { margin-top: 4px; }
+.faq-a { color: var(--muted); margin: 0; }
+
+/* プライバシーへの導線カード（海色アクセント） */
+.card.link-card {
+  background: linear-gradient(120deg, #fff, var(--sea-soft) 320%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+.card.link-card p { margin: 0; }
+.card.link-card .go {
+  flex: none;
+  font-family: var(--font-display);
+}
+
+/* =======================================================
+   フッター
+   ======================================================= */
+footer {
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+  padding: 36px 22px 64px;
+  line-height: 1.9;
+}
+footer a { color: var(--muted); font-weight: 600; }
+.foot-mark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--coral-deep);
+  letter-spacing: .03em;
+}
+
+/* =======================================================
+   プライバシーポリシー（ドキュメント）
+   ======================================================= */
+.doc {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 40px 36px 44px;
+  margin: 8px 0 0;
+  box-shadow: var(--shadow);
+}
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 26px;
+  font-size: 14px;
+}
+.doc h1 {
+  font-family: var(--font-display);
+  font-size: clamp(24px, 6vw, 30px);
+  font-weight: 900;
+  margin: 0 0 6px;
+  letter-spacing: .03em;
+}
+.updated {
+  display: inline-block;
+  color: var(--coral-deep);
+  background: var(--coral-soft);
+  font-size: 12.5px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin: 0 0 28px;
+}
+.doc h3 {
+  font-family: var(--font-display);
+  font-size: 15.5px;
+  font-weight: 700;
+  margin: 22px 0 6px;
+  color: var(--ink);
+}
+.doc strong { font-weight: 700; color: var(--coral-deep); }
+.doc h2 { margin-top: 34px; padding-top: 6px; }
+.doc h2:first-of-type { margin-top: 10px; }
+
+/* =======================================================
+   入場アニメーション（控えめなスタッガー）
+   ======================================================= */
+.reveal {
+  opacity: 0;
+  transform: translateY(16px);
+  animation: rise .7s cubic-bezier(.2,.8,.2,1) forwards;
+}
+@keyframes rise {
+  to { opacity: 1; transform: none; }
+}
+.d1 { animation-delay: .05s; }
+.d2 { animation-delay: .15s; }
+.d3 { animation-delay: .25s; }
+.d4 { animation-delay: .35s; }
+.d5 { animation-delay: .45s; }
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal { animation: none; opacity: 1; transform: none; }
+  .hero-icon { animation: none; }
+  html { scroll-behavior: auto; }
+}
+
+/* =======================================================
+   レスポンシブ
+   ======================================================= */
+@media (max-width: 480px) {
+  .card { padding: 24px 20px 26px; }
+  .doc  { padding: 30px 22px 34px; }
+  .hero { padding-top: 56px; }
+  .card.link-card { flex-direction: column; align-items: flex-start; }
+}

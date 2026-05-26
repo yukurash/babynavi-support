@@ -5,122 +5,73 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ベビナビ｜沖縄の子連れごはんマップ</title>
 <meta name="description" content="沖縄の子連れにやさしいレストランを、座敷・個室・ベビーチェアなどの条件で探せる無料アプリ「ベビナビ」のサポートページです。">
-<style>
-  :root {
-    --primary: #f08c5a;
-    --bg: #fdf6f0;
-    --card: #ffffff;
-    --text: #3a342f;
-    --muted: #8a807a;
-    --border: #ece3da;
-  }
-  * { box-sizing: border-box; }
-  body {
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", sans-serif;
-    background: var(--bg);
-    color: var(--text);
-    line-height: 1.8;
-    -webkit-font-smoothing: antialiased;
-  }
-  .wrap { max-width: 680px; margin: 0 auto; padding: 0 20px; }
-  header {
-    text-align: center;
-    padding: 56px 20px 40px;
-  }
-  .logo {
-    font-size: 32px;
-    font-weight: 800;
-    margin: 0 0 8px;
-    letter-spacing: 0.02em;
-  }
-  .tagline { color: var(--muted); font-size: 15px; margin: 0; }
-  .card {
-    background: var(--card);
-    border: 1px solid var(--border);
-    border-radius: 18px;
-    padding: 24px 24px;
-    margin: 0 0 20px;
-  }
-  h2 {
-    font-size: 18px;
-    font-weight: 700;
-    margin: 0 0 14px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid var(--border);
-  }
-  ul { padding-left: 1.2em; margin: 0; }
-  li { margin: 4px 0; }
-  a { color: var(--primary); text-decoration: none; font-weight: 600; }
-  a:hover { text-decoration: underline; }
-  .contact-mail {
-    display: inline-block;
-    background: var(--primary);
-    color: #fff;
-    padding: 12px 22px;
-    border-radius: 12px;
-    margin-top: 8px;
-  }
-  .contact-mail:hover { text-decoration: none; opacity: 0.92; }
-  .faq-q { font-weight: 700; margin: 18px 0 4px; }
-  .faq-q:first-child { margin-top: 0; }
-  .faq-a { color: var(--muted); margin: 0; }
-  footer {
-    text-align: center;
-    color: var(--muted);
-    font-size: 13px;
-    padding: 24px 20px 56px;
-  }
-  footer a { color: var(--muted); }
-</style>
+<meta name="theme-color" content="#F0837A">
+<link rel="icon" href="./favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="./icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Zen+Kaku+Gothic+New:wght@400;500;700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="./style.css">
 </head>
 <body>
-  <header>
-    <h1 class="logo">ベビナビ</h1>
-    <p class="tagline">沖縄の子連れにやさしいレストランが見つかる無料アプリ</p>
+
+  <header class="hero">
+    <img class="hero-icon reveal" src="./icon.png" alt="ベビナビ アイコン" width="96" height="96">
+    <h1 class="logo reveal d1">ベビナビ</h1>
+    <p class="tagline reveal d2">沖縄の子連れにやさしいレストランが、<br>地図とリストでサッと見つかる無料アプリ。</p>
+    <div class="pills reveal d3">
+      <span class="pill">座敷・個室</span>
+      <span class="pill">ベビーチェア</span>
+      <span class="pill sea">駐車場</span>
+      <span class="pill sea">キッズメニュー</span>
+    </div>
   </header>
 
   <div class="wrap">
+    <div class="cards">
 
-    <div class="card">
-      <h2>ベビナビとは</h2>
-      <p>沖縄県内のレストランを「子連れでうれしい条件」で探せる無料アプリです。地図とリストの両方から、近くのお店をすぐに見つけられます。</p>
-      <ul>
-        <li>座敷（小上がり）・個室・半個室</li>
-        <li>駐車場・ベビーチェア</li>
-        <li>全席禁煙・キッズメニュー</li>
-      </ul>
-      <p>などの条件でしぼりこめます。完全無料・広告なし・アプリ内課金なしです。</p>
+      <section class="card reveal d2">
+        <h2>ベビナビとは</h2>
+        <p>沖縄県内のレストランを「子連れでうれしい条件」で探せる無料アプリです。地図とリストの両方から、近くのお店をすぐに見つけられます。</p>
+        <ul>
+          <li>座敷（小上がり）・個室・半個室</li>
+          <li>駐車場・ベビーチェア</li>
+          <li>全席禁煙・キッズメニュー</li>
+        </ul>
+        <p>などの条件でしぼりこめます。完全無料・広告なし・アプリ内課金なしです。</p>
+      </section>
+
+      <section class="card reveal d3">
+        <h2>よくある質問</h2>
+        <p class="faq-q">利用にお金はかかりますか？</p>
+        <p class="faq-a">完全無料です。アプリ内課金や広告はありません。</p>
+        <p class="faq-q">ログインは必要ですか？</p>
+        <p class="faq-a">不要です。ログインしなくても、お店の検索など主要機能をご利用いただけます。</p>
+        <p class="faq-q">位置情報は何に使われますか？</p>
+        <p class="faq-a">近くのお店を地図に表示するためだけに使い、サーバーには送信しません。許可しなくても他の機能は使えます。</p>
+        <p class="faq-q">お店の情報が間違っている・古いときは？</p>
+        <p class="faq-a">設備の有無は変わることがあります。気づいた点は下記の連絡先までお知らせいただけると助かります。</p>
+      </section>
+
+      <section class="card reveal d4">
+        <h2>お問い合わせ</h2>
+        <p>ご質問・ご要望・不具合のご報告は、こちらまでお気軽にどうぞ。返信できるまで少しお時間をいただくことがあります。</p>
+        <p><a class="contact-mail" href="mailto:babynavi.okinawa@gmail.com">babynavi.okinawa@gmail.com</a></p>
+      </section>
+
+      <section class="card link-card reveal d5">
+        <p>個人情報の取り扱いについて</p>
+        <a class="go" href="./privacy.html">プライバシーポリシー →</a>
+      </section>
+
     </div>
-
-    <div class="card">
-      <h2>よくある質問</h2>
-      <p class="faq-q">利用にお金はかかりますか？</p>
-      <p class="faq-a">完全無料です。アプリ内課金や広告はありません。</p>
-      <p class="faq-q">ログインは必要ですか？</p>
-      <p class="faq-a">不要です。ログインしなくても、お店の検索など主要機能をご利用いただけます。</p>
-      <p class="faq-q">位置情報は何に使われますか？</p>
-      <p class="faq-a">近くのお店を地図に表示するためだけに使い、サーバーには送信しません。許可しなくても他の機能は使えます。</p>
-      <p class="faq-q">お店の情報が間違っている・古いときは？</p>
-      <p class="faq-a">設備の有無は変わることがあります。気づいた点は下記の連絡先までお知らせいただけると助かります。</p>
-    </div>
-
-    <div class="card">
-      <h2>お問い合わせ</h2>
-      <p>ご質問・ご要望・不具合のご報告は、こちらまでお気軽にどうぞ。</p>
-      <p><a class="contact-mail" href="mailto:babynavi.okinawa@gmail.com">babynavi.okinawa@gmail.com</a></p>
-    </div>
-
-    <div class="card">
-      <h2>プライバシー</h2>
-      <p><a href="./privacy.html">プライバシーポリシーはこちら →</a></p>
-    </div>
-
   </div>
 
   <footer>
-    <p>ベビナビ（個人開発）<br>
+    <p class="foot-mark">ベビナビ</p>
+    <p>沖縄の子連れごはんマップ（個人開発）<br>
     <a href="./privacy.html">プライバシーポリシー</a></p>
   </footer>
+
 </body>
 </html>
